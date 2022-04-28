@@ -1,0 +1,26 @@
+Hello, this is the intro text we will be using to document progression on project. 
+
+CS 494 
+Team Member 1: Tosan Egbesemirone (oegbes2)
+Team Member 2: Shreeya Rao Kankandula(skanka2)
+
+
+The main proposal - “I plan on using the dafny verification-ready programming language to prove the correctness of the hash sort algorithm. We will pass an unsorted array into the algorithm and then from there, we will return the sorted algorithm, all while validating the logic behind hash sort. The abstract level theorem unfortunately is TBD (my partner and I are still learning dafny documentation) But we believe we can implement this in an orderly manner.”
+
+Update:
+	After doing some research to learn more about dafny, we have decided to do a heap sort and then follow it with quicksort if the timeframe of progression for our project aligns with the due date. The main reason for this change is due to the perceived complexity from learning dafny already, adding an additional layer of validating an array matrix would take a while longer to complete as opposed to sorting an array. With that said, as we continue to read online documentation and watch tutorials, maybe our tentative timeline will change. At this point, we want to validate at least 2 sorts. 
+	One issue we have run into early is just that we have not been able to set up our environments to run the .dfy files locally. But there are some online IDEs that work well so this really is a non-issue. We also are going to share a git repository with you so that you can see our progress. We have a few predicate functions currently to validate the order of an array. 
+There has been a new update that we actually got the environment set up to run the .dfy files. I think the issue was not having the path set up which we figured out. 
+
+References we used to understand this project:
+	     https://soe.rutgers.edu/sites/default/files/imce/pdfs/gset-2014/Formal%20Verification%20with%20Dafny.pdf
+
+https://www.cs.cmu.edu/~mfredrik/15414/hw/guide.pdf
+
+https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/krml220.pdf
+
+Dafny-for-Pregel/insertion-sort.dfy at master	
+
+MOST RECENT UPDATE:
+
+I think i have heap sort fundamentally figured out. Should have bubble sort uploaded soon. Insertion sort is NOT apart of the project, was using it for references in terms of examples with postconditions.
