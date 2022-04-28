@@ -23,4 +23,4 @@ Dafny-for-Pregel/insertion-sort.dfy at master
 
 MOST RECENT UPDATE:
 
-I think i have heap sort fundamentally figured out. Should have bubble sort uploaded soon. Insertion sort is NOT apart of the project, was using it for references in terms of examples with postconditions.
+I think i have heap sort fundamentally figured out. Should have bubble sort uploaded soon. Bubble sort is making progress, I just need to make sure that I can implement a working 
