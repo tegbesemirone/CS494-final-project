@@ -19,11 +19,21 @@ method BubbleSort (a: array<int>)
 	ensures sorted(a)
 {
     var iter := 0;
-    while(x < a.Length)
+    var sorted := false;
+    while(!sorted)
         invariant 0 <= x <= a.Length
         invariant forall k, l :: 0 <= k < x <= l < a.Length ==> a[k] <= a[l]
     {
-        
+        var sortCheck := 0;
+
+        if(a[iter] > a[iter+1]){
+            a[iter], a[iter+1] := a[iter+1], a[iter];
+            sortCheck := sortCheck + 1;
+        }
+        if(sortCheck > 0){
+            sorted := true;
+        }
+
     }
 
 }
