@@ -1,3 +1,5 @@
+/* Resources used: https://stackoverflow.com/questions/24591668/selection-sort-in-dafny */
+
 predicate sorted (a: array<int>)
 	requires a != null
 	reads a
