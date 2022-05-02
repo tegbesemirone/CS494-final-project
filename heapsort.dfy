@@ -13,6 +13,11 @@ predicate sorted' (a: array<int>, i: int)
 	forall k :: 0 < k < i ==> a[k-1] <= a[k]
 }
 
+predicate SortedSequence(q: seq<int>)
+{
+	forall i,j :: 0 <= i <= j < |q| ==> q[i] <= q[j]
+}
+
 method MaxHeap(a: array<int>, i: int)
   requires a != null
 	requires 0 <= i <= a.Length
