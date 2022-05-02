@@ -1,50 +1,56 @@
-predicate sorted (a: array<int>)
-	requires a != null
-	reads a
+//Bubblesort CS 494 submission
+//References: https://stackoverflow.com/questions/69364687/how-to-prove-time-complexity-of-bubble-sort-using-dafny/69365785#69365785
+
+
+// predicate checks if elements of a are in ascending order, two additional conditions are added to allow us to sort in specific range within array
+predicate sorted(a:array<int>, from:int, to:int)
+  requires a != null; // requires array to have n amount of elements
+  reads a; 
+  requires 0 <= from <= to <= a.Length; // pre condition checks that from is the start of the range and to is the end of the range, requires values to be within 0 - a.Length
 {
-	sorted'(a, a.Length)
+  forall x, y :: from <= x < y < to ==> a[x] <= a[y]
 }
 
-predicate sorted' (a: array<int>, i: int)
-	requires a != null
-	requires 0 <= i <= a.Length
-	reads a
+//helps ensure swapping is valid
+predicate pivot(a:array<int>, to:int, pvt:int)
+  requires a != null; // requires array to have n amount of elements
+  reads a;
+  requires 0 <= pvt < to <= a.Length;
 {
-	forall k :: 0 < k < i ==> a[k-1] <= a[k]
+  forall u, v :: 0 <= u < pvt < v < to ==> a[u] <= a[v]
 }
+
+
 
 method BubbleSort (a: array<int>)
-	requires a != null
-	modifies a
-	ensures sorted(a)
+    requires a != null && a.Length > 0; // makes sure a is not empty and length is greater than 0
+    modifies a; // as method runs, we are changing a
+    ensures sorted(a, 0, a.Length); // makes sure elements of array a are sorted from 0 - a.Length
+    ensures multiset(a[..]) == multiset(old(a[..])); // Since a is being modified, we deference the heap 
+                                                      //and compare the previous elements to current elements.
 {
-    var iter := 0;
-    var sorted := false;
-    var swapped := a.Length;
-    // while loop to check if array is sorted
-    while(!sorted)
-        invariant 0 <= iter <= a.Length
-        invariant forall k, l :: 0 <= k < iter <= l < a.Length ==> a[k] <= a[l]
+  var i := 1;
 
+  while (i < a.Length)
+    invariant i <= a.Length; // more-or-less validates while loop condition during coputations
+    invariant sorted(a, 0, i); // Checks that for each increment of i, the array stays sorted, causing the 
+    invariant multiset(a[..]) == multiset(old(a[..]));
+  {
+    var j := i;
+
+    //this while loop inherits any previous pre/post conditions. It checks that 
+    while (j > 0)
+      invariant multiset(a[..]) == multiset(old(a[..]));
+      invariant sorted(a, 0, j);
+      invariant sorted(a, j, i+1);
+      invariant pivot(a, i+1, j);
     {
-        var sortCheck := 0;
-        var stop := a.Length-1;
-        // nested if condition checks to see if we need to swap values
-        while(iter < stop)
-            decreases stop - iter
-        {
-            if(a[iter] > a[iter+1])
-            {
-                a[iter], a[iter+1] := a[iter+1], a[iter];
-                sortCheck := sortCheck + 1;
-            }
-           iter := iter + 1; 
-        }
-        if(sortCheck < 1)
-        {
-            sorted := true;
-        }
-
+      if (a[j-1] > a[j]) {
+        a[j - 1], a[j] := a[j], a[j - 1];
+      }
+      j := j - 1;
     }
+    i := i+1;
+  }
 
 }
