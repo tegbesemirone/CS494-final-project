@@ -20,7 +20,7 @@ predicate pivot(a:array<int>, to:int, pvt:int)
   forall x, y :: 0 <= x < pvt < y < to ==> a[x] <= a[y] // all values within the array should be in ascending order
 }
 
-
+// Here having the algorithm for the bubblesort
 
 method BubbleSort (a: array<int>)
     requires a != null && a.Length > 0; // makes sure a is not empty and length is greater than 0
@@ -45,6 +45,7 @@ method BubbleSort (a: array<int>)
       invariant sorted(a, j, i+1); // then makes sure from a[j] - a[i+1] is sorted
       invariant pivot(a, i+1, j); // important for ensuring that each computation is correct after swapping
     {
+    // Here it also simplifies the remaining invariants to handle the empty array. 
       if (a[j-1] > a[j]) { // reverse iterate through range within the array
         a[j - 1], a[j] := a[j], a[j - 1]; // swaps objects if the IF condition is met
       }
