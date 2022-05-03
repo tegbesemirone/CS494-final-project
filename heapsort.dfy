@@ -1,3 +1,4 @@
+// heap sort alogorithm 
 predicate sorted (a: array<int>)
 	requires a != null
 	reads a
