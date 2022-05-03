@@ -4,9 +4,16 @@ CS 494
 Team Member 1: Tosan Egbesemirone (oegbes2)
 Team Member 2: Shreeya Rao Kankandula(skanka2)
 
+Firstly, a breif explanation about why the programs should be correct. In this recent times, writing programs or code correctly is very important. 
+Especially in today's worls having a very small mistake can cause various sorts of consequences. 
+This can be definetely avoided by the way we write and check the programs. In past there have been many consequneces for writing the wrong code and 
+that is why it seems to be having the right cide is very important.
 
 The main proposal - “I plan on using the dafny verification-ready programming language to prove the correctness of the hash sort algorithm. We will pass an unsorted array into the algorithm and then from there, we will return the sorted algorithm, all while validating the logic behind hash sort. The abstract level theorem unfortunately is TBD (my partner and I are still learning dafny documentation) But we believe we can implement this in an orderly manner.”
 
+Why we used dafny?
+Dafny is an automated verification language and unlike hoare logic or formal verification which is rather long, lengthy.
+It's definetely easier and are able to write the mathematical proofs easily without any difficulties.
 Update:
 	After doing some research to learn more about dafny, we have decided to do a heap sort and then follow it with quicksort if the timeframe of progression for our project aligns with the due date. The main reason for this change is due to the perceived complexity from learning dafny already, adding an additional layer of validating an array matrix would take a while longer to complete as opposed to sorting an array. With that said, as we continue to read online documentation and watch tutorials, maybe our tentative timeline will change. At this point, we want to validate at least 2 sorts. 
 	One issue we have run into early is just that we have not been able to set up our environments to run the .dfy files locally. But there are some online IDEs that work well so this really is a non-issue. We also are going to share a git repository with you so that you can see our progress. We have a few predicate functions currently to validate the order of an array. 
@@ -21,22 +28,31 @@ https://www.microsoft.com/en-us/research/wp-content/uploads/2016/12/krml220.pdf
 
 Dafny-for-Pregel/insertion-sort.dfy at master	
 
+Brief details on pre/post conditions used in our project:
+Here to start with a program it is important to have pre/post conditions. Pre conditions are generally the one that are assumed thinking that they must be true when you write the program.
+And where as the post conditions are the ones that prove to tell that when the program is invoked and the conclusion comes out to be true and then the program exits or terminates. These post conditions should 
+definetely reflect the program correctness and the relationship between the manipulated data, and the pre conditions are the ones you tend to assume thinking the post conditions work.
+
+
 Explaning breifly how exactly does bubble sort work:
 
 This sort method algorithm traverses he array of intergers beginning at the last index of the array. Here we conclude and compare it with by the value of the last index of the array.
 The main concept is that the preceding value is larger than the last value, then the two elements are usually swapped. The sorting method exactly works like the second least value of the entire array ends up in the second index of the array, hence 
-you can see that the 2 elements that you wanted to sort happens correctly. 
+you can see that the 2 elements that you wanted to sort happens correctly.  Here this process continues and the minimum value of the array generally tends to end up
+as the first index of the array. The same process mentioned above tends be repeating and this way two elements will be sorted correctly. This process happens unitl all the elements in the array are sorted and the same process is happening in the algorithm that we mentioned. 
+
 
 Explaning brefiley on how insertion sort works:
 
 The sorting alogorithm here happens by the first element of the array is sorted and usually the first part of the array is in ascending order. 
-The main method here is that every element in the second part of the array is first inserted basically in the position of the frst array of its correct posiiton. 
-Here also the the correct index for the element is found when it is usually less than the element after it. 
+The main method here is that every element in the second part of the array is first inserted basically in the position of the frst array of its correct posiiton. This sorting mehtod is purely by comparing the other elements in the array.
+There will be increase in the array because the each element in the second part of the array is then inserted into the first of the array.There is a shifting process by comparing the elements in the array.
+Here also the the correct index for the element is found when it is usually less than the element after it. And concluding it by saying that element is then inserted into the array at this index, by maintaining the sorted position of the array by increasing the length.
 
 
+HEAP SORT:
+we thought of proving the correctness heap sort as well but we weren't able to obtain the pre/post conditions for this method. We decided to write the code with heaplnsert in dafny with specifications and proof but it was pretty hard to prove it. 
 MOST RECENT UPDATE:
-bubble sort complete
+bubble sort complete and Insertion sort complete.
 
-MOST RECENT UPDATE:
-From Tosan: Bubble sort has been completed at this point. Will work on adding additional comments to other completed sorts. 
 
